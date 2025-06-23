@@ -14,16 +14,8 @@ export class ContactPage {
     });
   }
 
-  async verifyOnContactPage() {
-    await expect(this.page).toHaveURL(/.*contact.*/i);
-  }
-
   async fillInvalidEmail(value: string) {
     await this.emailInput.fill(value);
     await this.emailInput.blur();
-  }
-
-  async expectValidationError() {
-    await expect(this.emailError).toBeVisible();
-  }
+  }xs
 }

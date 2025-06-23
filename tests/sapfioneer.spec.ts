@@ -9,7 +9,7 @@ test.describe('SAP Fioneer Website - Homepage', () => {
     const home = new HomePage(page);
     await home.goto();
 
-    await home.verifySolutionSectionVisible();
+    await expect(home.solutionSection).toBeVisible();
 
     const titles = await home.getTrimmedCardTitles();
     expect(titles).toHaveLength(3);
@@ -27,7 +27,7 @@ test.describe('SAP Fioneer Website - Homepage', () => {
     await nav.openProductsMenu();
     await nav.clickFinanceEsg();
     await nav.clickEsgKpiEngine();
-    await nav.verifyEsgKpiEngineUrl();
+    await expect(page).toHaveURL(/.*esg-kpi-engine/);
   });
 
   test('Test 3: Validate incorrect email input in contact form', async ({ page }) => {
@@ -36,9 +36,9 @@ test.describe('SAP Fioneer Website - Homepage', () => {
     await home.goto();
 
     await home.clickGetInTouch();
-    await contact.verifyOnContactPage();
+    await expect(page).toHaveURL(/.*contact.*/i);
 
     await contact.fillInvalidEmail('342323');
-    await contact.expectValidationError();
+   await expect(contact.emailError).toBeVisible();
   });
 });

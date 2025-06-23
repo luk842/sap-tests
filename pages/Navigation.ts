@@ -9,7 +9,7 @@ export class Navigation {
   }
 
   get financeEsgMenu() {
-    return this.page.locator('button:has(span:text("Finance & ESG"))');
+    return this.page.locator('li.menu-section-item button:has-text("Finance & ESG")');
   }
 
   get esgKpiEngineLink() {
@@ -26,9 +26,5 @@ export class Navigation {
 
   async clickEsgKpiEngine() {
     await this.esgKpiEngineLink.click();
-  }
-
-  async verifyEsgKpiEngineUrl() {
-    await expect(this.page).toHaveURL(/.*esg-kpi-engine/);
   }
 }

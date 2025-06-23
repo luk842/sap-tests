@@ -26,10 +26,6 @@ export class HomePage {
     await this.page.goto('/');
   }
 
-  async verifySolutionSectionVisible() {
-    await expect(this.solutionSection).toBeVisible();
-  }
-
   async getTrimmedCardTitles(): Promise<string[]> {
     const titles = await this.cardTitles.allTextContents();
     return titles.slice(0, 3).map(t => t.trim());
