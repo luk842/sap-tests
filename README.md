@@ -25,4 +25,5 @@ npm run report
 
 - `pages/`: Page Object Models
 - `tests/`: Test specs
+- `helpers/`: helpers, setup
 - `playwright.config.ts`: Playwright config with HTML reporter

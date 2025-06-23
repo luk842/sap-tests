@@ -1,13 +1,16 @@
-
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 30000,
+  timeout: 30 * 1000,
   retries: 1,
+  reporter: [['html', { open: 'on-failure' }]],
   use: {
+    baseURL: 'https://www.sapfioneer.com',
     headless: true,
-    baseURL: 'https://www.sapfioneer.com/',
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
-  reporter: [['html', { open: 'never' }]],
 });
