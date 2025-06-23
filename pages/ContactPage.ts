@@ -17,5 +17,5 @@ export class ContactPage {
   async fillInvalidEmail(value: string) {
     await this.emailInput.fill(value);
     await this.emailInput.blur();
-  }xs
+  }
 }
